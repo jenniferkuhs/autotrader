@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @vehicle.category_id %>
+  <strong>Make & Category:</strong>
+  <%= @vehicle.category.make.name %>
+  <%= @vehicle.category.name %>
 </p>
 
 <p>
@@ -19,6 +20,14 @@
   <strong>Price:</strong>
   <%= @vehicle.price %>
 </p>
+
+<p>
+  <strong>Feature(s):</strong>
+<ul>
+	<%- @vehicle.features.each do |feature| %>
+	<li><%= feature.name %></li>
+	<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>
