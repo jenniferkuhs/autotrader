@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :features
 
   resources :vehicles
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :makes
+
+  root to: "vehicles#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
